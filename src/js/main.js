@@ -2,15 +2,15 @@
 
 $(document).on('ready', function() {
   console.log('sanity check!');
-  testing();
+  // testing();
 });
 
-function testing() {
-    $.ajax({
-        url : '/testroute',
-        datatype : 'json',
-        success : function(data) {
-            console.log(data);
-        }
-    })
-}
+// function testing() {
+//     $.ajax({
+//         url : '/testroute',
+//         datatype : 'json',
+//         success : function(data) {
+//             console.log(data);
+//         }
+//     })
+// }

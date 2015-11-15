@@ -1,5 +1,4 @@
-
-
+// var sinon = require('sinon');
 var expect = chai.expect;
 // var should = chai.should();
 
@@ -31,3 +30,32 @@ describe('Stub Ajax Tests', function() {
     })
 
 })
+
+
+
+// *** trying to use sinon to mock a server *** //
+
+
+// describe('Stub With Fake Server', function() {
+
+//      var stubData = [{
+//         link : 'www.StubLink.com',
+//         title : 'Stub Title',
+//         description : 'This is a test of if you described something and such',
+//     }]
+
+//     beforeEach(function() {
+//         var server = sinon.fakeServer.create();
+//     })
+
+//     afterEach(function() {
+//         server.restore();
+//     })
+
+//     it('should send mock data back on get', function() {
+//         server.respondWith('GET', '/testroute',
+//             [200, {'Content-Type' : 'application/json'},
+//             [stubData]])
+//     })
+
+// })
