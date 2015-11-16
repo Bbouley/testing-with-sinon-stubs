@@ -2,11 +2,9 @@
 
 $(document).on('ready', function() {
   console.log('sanity check!');
-  // testing();
-  $.get('/testroute', function(data) {
-    console.log(data);
-  })
+
 });
+
 
 function mockServerTest() {
     $.get('/testroute', function(data) {
@@ -14,12 +12,13 @@ function mockServerTest() {
     });
 }
 
-// function testing() {
-//     $.ajax({
-//         url : '/testroute',
-//         datatype : 'json',
-//         success : function(data) {
-//             console.log(data);
-//         }
-//     })
-// }
+
+function testing() {
+    $.ajax({
+        url : '/testroute',
+        datatype : 'json',
+        success : function(data) {
+            console.log(data);
+        }
+    })
+}
