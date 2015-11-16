@@ -7,26 +7,52 @@ describe('Basic Function Tests', function() {
 
 });
 
-describe('Stub Ajax Tests', function() {
+// describe('Stub Ajax Tests', function() {
+
+//     beforeEach(function() {
+//         sinon.spy($, 'ajax');
+//     })
+
+//     afterEach(function() {
+//         $.ajax.restore();
+//     })
+
+//     var stubData = [{
+//         link : 'www.StubLink.com',
+//         title : 'Stub Title',
+//         description : 'This is a test of if you described something and such',
+//     }]
+
+//     it('should make an ajax call', function(done) {
+//         testing();
+//         expect($.ajax.calledOnce).to.be.true;
+//         done();
+//     })
+
+// })
+
+describe('Mock Server', function() {
 
     beforeEach(function() {
-        sinon.spy($, 'ajax');
-    })
+        server = sinon.fakeServer.create();
+    });
 
     afterEach(function() {
-        $.ajax.restore();
-    })
+        server.restore();
+    });
 
-    var stubData = [{
-        link : 'www.StubLink.com',
-        title : 'Stub Title',
-        description : 'This is a test of if you described something and such',
-    }]
+    it('should send a fake jquery request', function() {
 
-    it('should make an ajax call', function(done) {
-        testing();
-        expect($.ajax.calledOnce).to.be.true;
-        done();
+        server.respondWith('GET', '/testroute',
+            [200, {'Content-Type' : 'application/json'},
+            '{"stuff":"is", "really":"cool"}']);
+
+        var callbacks = [sinon.spy(), sinon.spy()];
+
+        mockServerTest();
+
+        console.log(server.requests);
+        server.respond();
     })
 
 })
