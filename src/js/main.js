@@ -12,6 +12,13 @@ function mockServerTest() {
     });
 }
 
+function mockServerPost() {
+    var data = {mock : 'data'}
+    $.post('/testroute', data, function(response) {
+        console.log(response);
+    })
+}
+
 
 function testing() {
     $.ajax({

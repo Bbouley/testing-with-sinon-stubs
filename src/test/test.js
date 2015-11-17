@@ -47,7 +47,7 @@ describe('Mock Server', function() {
         server.restore();
     });
 
-    it('should send a fake jquery request', function() {
+    it('should send data for /testroute get', function() {
 
         server.respondWith('GET', '/testroute',
             [200, {'Content-Type' : 'application/json'},
@@ -57,6 +57,21 @@ describe('Mock Server', function() {
 
         // console.log(server.requests);
         server.respond();
+    })
+
+    it('should send data for /testroute post', function() {
+
+        server.respondWith('POST', '/testroute',
+            [200, {'Content-Type' : 'application/json'},
+            '{"content" : "posted"}']);
+
+        mockServerPost();
+
+        expect(mockServerPost).to.be.calledOnce;
+        expect(mockServerPost).to.be.cal
+
+        server.respond();
+
     })
 
 })
