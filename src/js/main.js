@@ -22,10 +22,16 @@ function mockServerPost() {
 
 function testing() {
     $.ajax({
-        url : '/testroute',
+        url      : '/testroute',
         datatype : 'json',
-        success : function(data) {
+        success  : function(data) {
             console.log(data);
         }
     })
+}
+
+module.exports = {
+    mockServerTest : mockServerTest,
+    mockServerPost : mockServerPost,
+    testing        : testing
 }

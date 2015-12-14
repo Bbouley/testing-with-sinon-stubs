@@ -1,4 +1,6 @@
+var chai = require('chai');
 var expect = chai.expect;
+var main = require('../js/main.js');
 
 
 // *** simple functions tests *** //
@@ -27,7 +29,7 @@ describe('Stub Ajax Tests', function() {
     }]
 
     it('should make an ajax call', function(done) {
-        testing();
+        main.testing();
         expect($.ajax.calledOnce).to.be.true;
         done();
     })
@@ -53,7 +55,7 @@ describe('Mock Server', function() {
             [200, {'Content-Type' : 'application/json'},
             '{"stuff":"is", "really":"cool"}']);
 
-        mockServerTest();
+        main.mockServerTest();
 
         // console.log(server.requests);
         server.respond();
@@ -65,7 +67,7 @@ describe('Mock Server', function() {
             [200, {'Content-Type' : 'application/json'},
             '{"content" : "posted"}']);
 
-        mockServerPost();
+        main.mockServerPost();
 
         expect(mockServerPost).to.be.calledOnce;
         expect(mockServerPost).to.be.cal
